@@ -12,7 +12,7 @@ color = function(red, green, blue){
         return "rgb(" + red + ", " + green + ", " + blue + ")";
     }
     else{
-        // Convert from hex code. eventually.
+        // Convert from hex code. Eventually.
     }
 };
 
