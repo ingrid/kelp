@@ -15,3 +15,11 @@ color = function(red, green, blue){
         // Convert from hex code. eventually.
     }
 };
+
+Vector = function(x, y){
+    vector = {};
+    vector.x = x;
+    vector.y = y;
+    
+    return vector;
+};

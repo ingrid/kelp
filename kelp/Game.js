@@ -4,6 +4,7 @@ Game = function(width, height){
     game.canvas = document.createElement("canvas");
     game.context = game.canvas.getContext("2d");
     game.bgColor = color(0, 0, 0);
+    game.childeren = [];
     
     game.fps = 30;
     game.elapsed = 0;
@@ -60,6 +61,10 @@ Game = function(width, height){
     
     game.run = function(){
         game.tick();
+    };
+
+    game.add = function(obj){
+	game.childeren.push(obj);
     };
     
     game.sound = {};
