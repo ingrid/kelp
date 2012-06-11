@@ -1,5 +1,5 @@
-Scene = function(){
-    scene = Sprite(0, 0);
+kelp.Scene = function(){
+    scene = sprite.Sprite(0, 0);
     scene.setMask = function(url){
 	img = Image(url);
 	img.onload = function(){

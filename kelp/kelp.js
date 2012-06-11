@@ -5,4 +5,5 @@ kelp.init = function(){
     document.write("<script language='javascript' src='kelp/Sprite.js'></script>");
     document.write("<script language='javascript' src='kelp/Scene.js'></script>");
     document.write("<script language='javascript' src='kelp/Mouse.js'></script>");
+    document.write("<script language='javascript' src='kelp/Character.js'></script>");
 }();

@@ -42,19 +42,21 @@ Game = function(width, height){
     game.timer = 0.0;
 
     game.tick = function(){
-	var updatedTime = game.date.getTime();
+	var updatedDate = new Date();
+	var updatedTime = updatedDate.getTime();
 	var elapsed = updatedTime - game.currentTime;
 	game.currentTime = updatedTime;
 	game.timer += elapsed;
 
-        game.update(elapsed);
+	// ICC: Maybe it'll be better to make everything milliseconds?
+        game.update(elapsed/1000);
         game.render();
         window.setTimeout(game.tick, 1000.0/game.fps);
     };
     
-    game.update = function(){
+    game.update = function(elapsed){
 	for (var i = 0; i < game.children.length; i++){
-	    game.children[i].update(game.elapsed);
+	    game.children[i].update(elapsed);
 	}
     };
     

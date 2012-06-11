@@ -1,4 +1,8 @@
-Sprite = function(x, y){
+// ICC: Move animations and other non core functionality out so Character.js or
+// something...unless Scene.js needs animation...maybe, but it would be better
+// to animate induvidual objects on a screen...maybe.
+
+kelp.Sprite = function(x, y){
     var sprite = {};
 
     sprite.x = x;
@@ -31,12 +35,8 @@ Sprite = function(x, y){
     };
 
     sprite.update = function (elapsed){
-	console.log(sprite.velocity.x);
-	console.log(elapsed);
-	console.log(sprite.velocity.x * elapsed);
 	sprite.x += sprite.velocity.x * elapsed;
 	sprite.y += sprite.velocity.y * elapsed;
-	console.log(sprite.velocity.x);
     };
 
     sprite.render = function(ctx){
