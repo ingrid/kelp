@@ -1,4 +1,4 @@
-Game = extend(Game, function(game){
+Game = kelp.extend(Game, function(game){
     var MOUSE_BUTTON_MAP = {
 	1:'MOUSE_LEFT',
 	3:'MOUSE_RIGHT'
@@ -7,7 +7,7 @@ Game = extend(Game, function(game){
     game._justPressedButtons = [];
     game._justReleasedButtons = [];
     game._buttons = {};
-    game.mouse = Vector(0,0);
+    game.mouse = kelp.Vector(0,0);
     
     var _getMouseCoords = function(e){
 	if(game.canvas === undefined) { return; }
@@ -27,7 +27,7 @@ Game = extend(Game, function(game){
 	y -= game.canvas.offsetTop;
 	
 	if(x >= 0 && x < game.canvas.width && y >= 0 && y < game.canvas.height){
-	    return Vector(x, y);
+	    return kelp.Vector(x, y);
 	}
     };
 
@@ -40,7 +40,7 @@ Game = extend(Game, function(game){
 	}
     };
     
-    game.update = extend(game.update, function(){
+    game.update = kelp.extend(game.update, function(){
 	game._justPressedButtons = [];
 	game._justReleasedButtons = [];
     });

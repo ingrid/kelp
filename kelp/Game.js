@@ -3,7 +3,7 @@ Game = function(width, height){
     
     game.canvas = document.createElement("canvas");
     game.context = game.canvas.getContext("2d");
-    game.bgColor = color(0, 0, 0);
+    game.bgColor = kelp.color(0, 0, 0);
     game.children = [];
     
     game.fps = 30;
@@ -35,14 +35,24 @@ Game = function(width, height){
     game.canvas.width = width;
     game.canvas.height = height;
     
+    // ICC: WTF figure out this 'date' object.
+    // ICC: WTF figure out this 'new' keyword.
+    game.date = new Date();
+    game.currentTime = game.date.getTime();
+    game.timer = 0.0;
+
     game.tick = function(){
+	var updatedTime = game.date.getTime();
+	var elapsed = updatedTime - game.currentTime;
+	game.currentTime = updatedTime;
+	game.timer += elapsed;
+
+        game.update(elapsed);
         game.render();
-        game.update();
         window.setTimeout(game.tick, 1000.0/game.fps);
     };
     
     game.update = function(){
-        game.elapsed = 1.0/game.fps;
 	for (var i = 0; i < game.children.length; i++){
 	    game.children[i].update(game.elapsed);
 	}
@@ -61,7 +71,7 @@ Game = function(width, height){
     };
     
     game.setBGColor = function(r, g, b){
-        game.bgColor = color(r, g, b);
+        game.bgColor = kelp.color(r, g, b);
     };
     
     game.run = function(){

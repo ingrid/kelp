@@ -3,14 +3,10 @@ Sprite = function(x, y){
 
     sprite.x = x;
     sprite.y = y;
-    sprite.velocity = Vector(0, 0);
+    sprite.velocity = kelp.Vector(0, 0);
 
     sprite.loadImage = function(url){
-	img = Image(url);
-	img.onload = function(){
-	};
-	img.src = url;
-	sprite.image = img;
+	sprite.image = kelp.loadImage(url);
     };
 
     sprite.setAnimation = function(width, height, numFrames, frameRate){
@@ -24,7 +20,6 @@ Sprite = function(x, y){
 	for(var i = 0; i < numFrames; i++){
 	    var frame = {};
 	    frame.x = (frames[i] * width);
-	    // Add in offests eventually.
 	    frame.y = 0;
 	    frame.width = anim.width;
 	    frame.height = anim.height;

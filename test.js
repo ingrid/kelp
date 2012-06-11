@@ -11,7 +11,7 @@ initialize = function(){
     player.setAnimation(32, 32, 36, 2);
     player.speed = 1;
 
-    player.update = extend(player.update, function(elapsed){
+    player.update = kelp.extend(player.update, function(elapsed){
         player.velocity.x = 0;
 	player.velocity.y = 0;
 	
