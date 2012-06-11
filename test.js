@@ -8,7 +8,7 @@ initialize = function(){
 
     player = kelp.Character(80, 80);
     player.loadImage("assets/player.png");
-    player.setAnimation(32, 32, 36, 2);
+    player.setAnimation(36, 32, 32, 2);
     player.speed = 1;
 
     /** /

@@ -48,3 +48,48 @@ kelp.loadImage = function(url, onload){
     }
     return img;
 };
+
+kelp.makeFont = function (size, color, font, style){
+    var font = {};
+    
+    if (style === undefined){
+	style = "";
+    }
+    if (font === undefined){
+	font = "sans-serif";
+    }
+    
+    font.color = color;
+    font.size = size;
+    font.font = font;
+    font. style = style;
+    
+    return font;
+};
+
+// ICC: Should animations always be independent of images?
+kelp.Animation = function(numFrames, frameWidth, frameHeight, frameRate, offsetX, offsetY, callback){
+    if(offsetX == undefined){offsetX = 0;}
+    if(offsetX == undefined){offsetY = 0;}
+    if(callback == undefined){callback = function(){};}
+
+    var anim = {};
+
+    anim.width = frameWidth;
+    anim.height = frameHeight;
+    anim.numFrames = numFrames;
+    anim.frameRate = frameRate;
+    anim.offset = kelp.Vector(offsetX, offsetY);
+    anim.frames = [];
+
+    for(var i = 0; i < numFrames; i++){
+	var frame = {};
+	frame.x = (frames[i] * anim.width);
+	frame.y = 0;
+	frame.width = anim.width;
+	frame.height = anim.height;
+	anim.frames.push(frame);
+    }
+
+	return anim;
+};

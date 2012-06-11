@@ -13,23 +13,8 @@ kelp.Sprite = function(x, y){
 	sprite.image = kelp.loadImage(url);
     };
 
-    sprite.setAnimation = function(width, height, numFrames, frameRate){
-	var anim = {};
-	anim.width = width;
-	anim.height = height;
-	anim.numFrames = numFrames;
-	anim.frameRate = frameRate;
-	sprite.frames = [];
-
-	for(var i = 0; i < numFrames; i++){
-	    var frame = {};
-	    frame.x = (frames[i] * width);
-	    frame.y = 0;
-	    frame.width = anim.width;
-	    frame.height = anim.height;
-	    sprite.frames.push(frame);
-	}
-
+    sprite.setAnimation = function(numFrames, width, height, frameRate){
+	var anim = kelp.Animation(numFrames, width, height, frameRate);
 	sprite.animation = anim;
 	sprite.currFrame = 0;
     };
@@ -44,7 +29,8 @@ kelp.Sprite = function(x, y){
 	    ctx.drawImage(sprite.image, sprite.x, sprite.y);
 	}
 	if (sprite.image != null && sprite.animation != null){
-	    var frame = sprite.frames[sprite.currFrame];
+	    // ICC: Maybe move frames back to sprite.
+	    var frame = sprite.animation.frames[sprite.currFrame];
 	    ctx.drawImage(sprite.image, frame.width * sprite.currFrame, 0, frame.width, frame.height, sprite.x, sprite.y, frame.width, frame.height);
 	    if (sprite.currFrame >= sprite.animation.numFrames - 1){
 		sprite.currFrame = 0;

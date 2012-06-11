@@ -5,28 +5,9 @@ Game = function(width, height){
     game.context = game.canvas.getContext("2d");
     game.bgColor = kelp.color(0, 0, 0);
     game.children = [];
-    
+
     game.fps = 30;
     game.elapsed = 0;
-    
-    text = {};
-    text.makeFont = function (color, size, font, style){
-        var font = {};
-	
-        if (style === undefined){
-            style = "";
-        }
-        if (font === undefined){
-            font = "sans-serif";
-        }
-	
-        font.color = color;
-        font.size = size;
-        font.font = font;
-        font. style = style;
-	
-        return font;
-    };
     
     parentElement = document.body;
     

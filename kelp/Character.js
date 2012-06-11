@@ -4,7 +4,9 @@
 
 // Requires mouse and keyboard input.
 
-kelp.Character = function(x, y){
+// What syntax do we use to init this?
+
+kelp.Character = function(x, y, upAnim, downAnim, leftAnim, rightAnim){
     character = kelp.Sprite(x, y);
 
     character.speed = 0;
@@ -14,7 +16,7 @@ kelp.Character = function(x, y){
 	character.velocity.y = 0;
 	
 	guide = game.mouse;
-	/**/
+
 	var vec = {};
 	vec.x = character.x - guide.x;
 	vec.y = character.y - guide.y;
@@ -25,7 +27,6 @@ kelp.Character = function(x, y){
 	    character.velocity.x = -vec.x * character.speed;
 	    character.velocity.y = -vec.y * character.speed;
 	}
-	/**/
 
     });
 
