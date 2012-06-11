@@ -26,6 +26,7 @@ initialize = function(){
 
 	    player.velocity.x = -vec.x * player.speed;
 	    player.velocity.y = -vec.y * player.speed;
+	    //	    player.playAnimation(walkAnim);
 	}
 
     });

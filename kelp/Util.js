@@ -1,8 +1,14 @@
-extend = function(baseFunc, addFunc){
+extend = function(baseFunc, addFunc, returnSecond, passObj){
     var newFunc = function(){
         var firstCall = baseFunc.apply(null, arguments);
-        var secondCall = addFunc.apply(null, arguments);
-        return firstCall;
+	if (passObj){
+	    var args = [firstCall];
+	    for(var i = 0; i < arguments.length; i++){
+		args[i+1] = arguments[i];
+	    }
+	}
+	var secondCall = addFunc.apply(null, passObj ? args : arguments);
+	return (returnSecond === true) ? secondCall : firstCall;
     };
     return newFunc;
 };
@@ -17,7 +23,7 @@ color = function(red, green, blue){
 };
 
 Vector = function(x, y){
-    vector = {};
+    var vector = {};
     vector.x = x;
     vector.y = y;
     

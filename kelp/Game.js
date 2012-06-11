@@ -4,30 +4,30 @@ Game = function(width, height){
     game.canvas = document.createElement("canvas");
     game.context = game.canvas.getContext("2d");
     game.bgColor = color(0, 0, 0);
-    game.childeren = [];
+    game.children = [];
     
     game.fps = 30;
     game.elapsed = 0;
-
+    
     text = {};
     text.makeFont = function (color, size, font, style){
         var font = {};
-
+	
         if (style === undefined){
             style = "";
         }
         if (font === undefined){
             font = "sans-serif";
         }
-
+	
         font.color = color;
         font.size = size;
         font.font = font;
         font. style = style;
-
+	
         return font;
     };
-
+    
     parentElement = document.body;
     
     parentElement.appendChild(game.canvas);
@@ -43,16 +43,21 @@ Game = function(width, height){
     
     game.update = function(){
         game.elapsed = 1.0/game.fps;
-
+	for (var i = 0; i < game.children.length; i++){
+	    game.children[i].update(game.elapsed);
+	}
     };
     
     game.render = function(){
-
+	
         var ctx = game.context;
-
+	
         ctx.fillStyle = game.bgColor;
         ctx.fillRect(0, 0, game.canvas.width, game.canvas.height);
-
+	for (var i = 0; i < game.children.length; i++){
+	    game.children[i].render(ctx);
+	}
+	
     };
     
     game.setBGColor = function(r, g, b){
@@ -62,9 +67,9 @@ Game = function(width, height){
     game.run = function(){
         game.tick();
     };
-
+    
     game.add = function(obj){
-	game.childeren.push(obj);
+	game.children.push(obj);
     };
     
     game.sound = {};
@@ -85,12 +90,6 @@ Game = function(width, height){
     game.play = function(file, volume, pan, loop){
         game.sound.play("audio/" + file);
     };
-
-    return game;
-};
     
-window.onload = function(){
-};
-
-function onMouseDown(evt){
+    return game;
 };
