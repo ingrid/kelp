@@ -1,5 +1,7 @@
-Game = function(width, height){
+kelp.Game = function(width, height){
     var game = {};
+
+    game.prototype = {};
     
     game.canvas = document.createElement("canvas");
     game.context = game.canvas.getContext("2d");

@@ -1,4 +1,6 @@
-Game = kelp.extend(Game, function(game){
+// Mouse input. Require input.
+
+kelp.Game = kelp.extend(kelp.Game, function(game){
     var MOUSE_BUTTON_MAP = {
 	1:'MOUSE_LEFT',
 	3:'MOUSE_RIGHT'

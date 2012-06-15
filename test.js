@@ -3,7 +3,7 @@ window.onload = function(){
 };
 
 initialize = function(){
-    game = Game(500, 400);
+    game = kelp.Game(500, 400);
     game.setBGColor(80, 0, 80);
 
     player = kelp.Character(80, 80);
